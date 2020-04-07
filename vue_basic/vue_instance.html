@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <button v-on:click="changeTitle">Change</button>
+    </div>
+    <div id="root">
+        <h1>{{title}}</h1>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            methods: {
+                changeTitle() {
+                    this.title = "Hi";
+                    root.title = "Hello";
+                }
+            },
+            data: {
+                title: " Hello "
+            }
+        })
+        var root = new Vue({
+            el: "#root",
+            data: {
+                title: " Hi "
+            }
+        })
+    </script>
+</body>
+
+</html>

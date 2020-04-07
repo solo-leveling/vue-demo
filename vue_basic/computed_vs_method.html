@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="reduceCount">-</button>
+        <!-- <span>{{}}</span> -->
+        <button v-on:click="addCount">+</button>
+        <p>Count :: {{count}}</p>
+        <p>Double Count :: {{doubleCount}}</p>
+        <p>Trible Count :: {{getTribleCount()}} </p>
+        <p>{{title}}</p>
+        <button v-on:click="changeTitle">change</button>
+    </div>
+
+
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            methods: {
+                addCount() {
+                    this.count++;
+                },
+                reduceCount() {
+                    if (this.count > 0)
+                        this.count--;
+                },
+                changeTitle() {
+                    this.title = "Hi";
+                },
+                getTribleCount() {
+                    console.log("Trible Count worked");
+                    return this.count * 3;
+                }
+            },
+            computed: {
+                doubleCount() {
+                    console.log("Double Count worked");
+                    return this.count * 2;
+                }
+            },
+            data: {
+                count: 0,
+                title: "Hello"
+            }
+        });
+    </script>
+
+</body>
+
+</html>
